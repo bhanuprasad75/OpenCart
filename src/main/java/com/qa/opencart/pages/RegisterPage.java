@@ -24,6 +24,9 @@ public class RegisterPage {
 	private By subscribeBtn=By.xpath("//label[text()[normalize-space()='Yes']]");
 	private By agree=By.cssSelector("input[name='agree']");
 	private By continueBtn=By.cssSelector("input[value='Continue']");
+	private By registerationCnfMsg=By.cssSelector("div#content h1");
+	private By logoutLink=By.linkText("Logout");
+	private By regitserLink = By.linkText("Register");
 
 
 	public RegisterPage(WebDriver driver) {
@@ -45,6 +48,11 @@ public class RegisterPage {
 		eu.doClick(subscribeBtn);
 		eu.doClick(agree);
 		eu.doClick(continueBtn);
+		String cnfMsg=eu.waitForElementVisible(registerationCnfMsg,10).getText().trim();
+		if(cnfMsg.equals("Your Account Has Been Created!")) {
+			eu.doClick(logoutLink);
+			eu.doClick(regitserLink);
+		}
 		
 	}
 

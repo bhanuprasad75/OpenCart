@@ -24,12 +24,44 @@ public class RegisterPageTest extends Base {
 		};	
 		
 	}
-	@Test(dataProvider="getRegistartionData")
+	@Test(dataProvider="getRegistartionData",priority=2,groups={"smoke"})
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	public void doRegister(String fname,String laname,String telephone,String password,String cnfPassword) {
 		rp.doRegistration(fname, laname, eu.randomemail(), telephone, password, cnfPassword);
 	}
 	
-	@Test
+	@Test(priority=1)
 	public void getTitle() {
 		String Title = rp.doGetTitle();
 		Assert.assertEquals(Title, "Register Account");
